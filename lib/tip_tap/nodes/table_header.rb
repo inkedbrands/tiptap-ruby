@@ -13,6 +13,17 @@ module TipTap
 
         add_content(Paragraph.new(&block))
       end
+
+      def html_attributes
+        super.merge(cell_attributes).compact_blank
+      end
+
+      def cell_attributes
+        {
+          colspan: attrs["colspan"],
+          rowspan: attrs["rowspan"],
+        }
+      end
     end
   end
 end
