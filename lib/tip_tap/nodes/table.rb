@@ -7,6 +7,10 @@ module TipTap
     class Table < Node
       self.type_name = "table"
       self.html_tag = :table
+      self.html_class_name = "table"
+      self.html_data_attributes = {
+        table_appearance_value: "bordered",
+      }
 
       def table_row(&block)
         raise ArgumentError, "Block required" if block.nil?
