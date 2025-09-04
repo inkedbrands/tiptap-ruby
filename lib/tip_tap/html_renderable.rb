@@ -32,6 +32,14 @@ module TipTap
       def html_class_name
         @html_class_name
       end
+
+      def html_data_attributes=(hash)
+        @html_data_attributes = hash
+      end
+
+      def html_data_attributes
+        @html_data_attributes
+      end
     end
 
     def html_tag
@@ -54,12 +62,19 @@ module TipTap
       end
     end
 
+    def html_data_attributes
+      (self.class.html_data_attributes || {}).each_with_object({}) do |(key, value), h|
+        evaluated_value = value.is_a?(Proc) ? instance_eval(&value) : value
+        h[key] = evaluated_value unless evaluated_value.blank?
+      end
+    end
+
     def to_html
       content_tag(html_tag, safe_join(content.map(&:to_html)), html_attributes)
     end
 
     def html_attributes
-      {style: inline_styles, class: html_class_name}.reject { |key, value| value.blank? }
+      {style: inline_styles, class: html_class_name, data: html_data_attributes}.reject { |key, value| value.blank? }
     end
 
     def inline_styles
