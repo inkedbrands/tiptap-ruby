@@ -7,6 +7,7 @@ require "tip_tap/nodes/bullet_list"
 require "tip_tap/nodes/hard_break"
 require "tip_tap/nodes/heading"
 require "tip_tap/nodes/horizontal_rule"
+require "tip_tap/nodes/iframe"
 require "tip_tap/nodes/list_item"
 require "tip_tap/nodes/ordered_list"
 require "tip_tap/nodes/paragraph"
@@ -20,6 +21,7 @@ require "tip_tap/nodes/table"
 require "tip_tap/nodes/table_row"
 require "tip_tap/nodes/table_cell"
 require "tip_tap/nodes/table_header"
+require "tip_tap/nodes/video"
 
 module TipTap
   class Error < StandardError; end
