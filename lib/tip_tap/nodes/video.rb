@@ -19,7 +19,9 @@ module TipTap
                       height: height || 315,
                       frameborder: 0,
                       allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
-                      allowfullscreen: true,
+                      allowfullscreen: 'allowfullscreen',
+                      mozallowfullscreen: 'mozallowfullscreen',
+                      webkitallowfullscreen: 'webkitallowfullscreen',
                       referrerpolicy: 'strict-origin-when-cross-origin',
                       title: title
           )
