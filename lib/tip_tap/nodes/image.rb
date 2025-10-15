@@ -22,8 +22,8 @@ module TipTap
       def to_html
         image = image_tag(src, alt: alt)
 
-        if marks.any? { |mark| mark["type"] == 'link' }
-          content_tag(:a, image, href: link_href, target: link_target)
+        if marks.any? { |mark| mark["type"] == "link" }
+          content_tag(:a, image, href: link_href, target: link_target, rel: link_rel, class: link_class)
         else
           image
         end
@@ -66,6 +66,14 @@ module TipTap
 
       def link_target
         marks.find { |mark| mark["type"] == "link" }&.dig("attrs", "target")
+      end
+
+      def link_rel
+        marks.find { |mark| mark["type"] == "link" }&.dig("attrs", "rel")
+      end
+
+      def link_class
+        marks.find { |mark| mark["type"] == "link" }&.dig("attrs", "class")
       end
     end
   end
