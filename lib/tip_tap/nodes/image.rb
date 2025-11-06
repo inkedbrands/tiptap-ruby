@@ -20,7 +20,7 @@ module TipTap
       end
 
       def to_html
-        image = image_tag(src, alt: alt)
+        image = image_tag(src, alt: alt, srcset: srcset)
 
         if marks.any? { |mark| mark["type"] == "link" }
           content_tag(:a, image, href: link_href, target: link_target, rel: link_rel, class: link_class)
@@ -58,6 +58,10 @@ module TipTap
 
       def src
         attrs["src"]
+      end
+
+      def srcset
+        attrs["srcset"]
       end
 
       def link_href
