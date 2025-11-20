@@ -17,6 +17,10 @@ module TipTap
                       src: src,
                       width: width || 560,
                       height: height || 315,
+                      allow: 'autoplay; fullscreen; picture-in-picture; encrypted-media; web-share',
+                      allowfullscreen: 'allowfullscreen',
+                      mozallowfullscreen: 'mozallowfullscreen',
+                      webkitallowfullscreen: 'webkitallowfullscreen',
                       frameborder: 0,
                       referrerpolicy: 'strict-origin-when-cross-origin',
                       title: title
